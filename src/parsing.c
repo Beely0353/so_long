@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 12:07:06 by baroun            #+#    #+#             */
-/*   Updated: 2022/05/27 12:07:14 by baroun           ###   ########.fr       */
+/*   Created: 2023/04/06 12:36:26 by biaroun           #+#    #+#             */
+/*   Updated: 2023/04/06 15:28:31 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	co_ex(t_solong *map)
 		}
 		a++;
 	}
-	if (map->nbr_exit <= 0 || map->nbr_collect <= 0)
+	if (map->nbr_exit <= 0 || map->nbr_collect <= 0 || map->nbr_exit != 1)
 		return_error(2, map);
 }
 

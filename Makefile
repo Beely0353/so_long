@@ -6,7 +6,7 @@ CC = gcc
 
 FLAG = -Wall -Wextra -Werror -g
 
-SRC = so_long.c error.c move.c parsing.c player_down.c player_up.c player_left.c player_right.c map_aff.c
+SRC = so_long.c error.c move.c parsing.c player_down.c player_up.c player_left.c player_right.c map_aff.c is_solvable.c
 
 AR = ar -rcs
 

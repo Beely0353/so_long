@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 13:51:36 by baroun            #+#    #+#             */
-/*   Updated: 2022/05/27 12:08:08 by baroun           ###   ########.fr       */
+/*   Created: 2023/04/06 12:37:15 by biaroun           #+#    #+#             */
+/*   Updated: 2023/04/06 16:35:16 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ typedef struct s_solong
 	int		nbr_player;
 	int		nbr_exit;
 	int		move;
+	int		exit_x;
+	int		exit_y;
+	int		p_x;
+	int		p_y;
 	int		nbr_x;
 	int		nbr_y;
 	int		x;
@@ -67,6 +71,7 @@ static void	check_move_down(t_solong *map);
 static void	check_move_left(t_solong *map);
 static void	check_move_up(t_solong *map);
 static void	texture_init(t_solong *map);
+void		is_solvable(t_solong *map);
 
 void		aff_map(t_solong *map, int y, int x);
 void		return_error(int c, t_solong *map);
@@ -82,7 +87,7 @@ void		map_error(t_solong *map);
 void		player_up(t_solong *map);
 void		pars_map(t_solong *map);
 void		map_init(t_solong *map);
-void		free_tab(t_solong *map);
+void		free_tab(char **tab);
 void		check_ext(char *av);
 void		co_ex(t_solong *map);
 void		file_error(int c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 14:02:46 by baroun            #+#    #+#             */
-/*   Updated: 2022/05/27 12:59:54 by baroun           ###   ########.fr       */
+/*   Created: 2023/04/06 12:36:59 by biaroun           #+#    #+#             */
+/*   Updated: 2023/04/11 11:51:38 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	main(int ac, char **av)
 		add_tab(&map, av[1]);
 		add_map(&map, av[1]);
 		map_error(&map);
+		is_solvable(&map);
 		co_ex(&map);
 		position_player(&map);
 		map_init(&map);
@@ -102,7 +103,9 @@ int	main(int ac, char **av)
 		mlx_hook(map.win, 2, 0, key_assign, &map);
 		mlx_hook(map.win, 17, 0, exit_game, &map);
 		mlx_loop(map.mlx);
-		free_tab(&map);
+		free_tab(map.tab);
+		return (0);
 	}
-	return (0);
+	ft_putendl_fd("Need map.ber", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }

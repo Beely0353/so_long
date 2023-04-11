@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 11:59:55 by baroun            #+#    #+#             */
-/*   Updated: 2022/05/27 12:01:20 by baroun           ###   ########.fr       */
+/*   Created: 2023/04/06 12:36:02 by biaroun           #+#    #+#             */
+/*   Updated: 2023/04/06 12:38:37 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ void	file_error(int c)
 	}
 }
 
-void	free_tab(t_solong *map)
+void	free_tab(char **tab)
 {
 	int	i;
 
 	i = 0;
-	while (map->tab[i])
+	while (tab[i])
 	{
-		free(map->tab[i]);
-		map->tab[i] = NULL;
+		free(tab[i]);
+		tab[i] = NULL;
 		i++;
 	}
-	free(map->tab);
+	free(tab);
 }
 
 void	map_error(t_solong *map)

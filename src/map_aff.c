@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_aff.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 12:06:46 by baroun            #+#    #+#             */
-/*   Updated: 2022/05/27 12:06:49 by baroun           ###   ########.fr       */
+/*   Created: 2023/04/06 12:36:09 by biaroun           #+#    #+#             */
+/*   Updated: 2023/04/11 11:51:11 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void	pars_map(t_solong *map)
 		}
 		map->y += PXL;
 	}
+	mlx_put_image_to_window(map->mlx, map->win,
+		map->is_exit, map->exit_x, map->exit_y);
+	mlx_put_image_to_window(map->mlx, map->win,
+		map->is_player, map->p_x, map->p_y);
+	if (map->tab[map->exit_y / PXL][map->exit_x / PXL] != 'P')
+		map->tab[map->exit_y / PXL][map->exit_x / PXL] = 'E';
 }
 
 void	aff_map(t_solong *map, int y, int x)
@@ -44,8 +50,8 @@ void	aff_map(t_solong *map, int y, int x)
 	else if (map->tab[y][x] == 'P')
 	{
 		aff_ground(map);
-		mlx_put_image_to_window(map->mlx, map->win,
-			map->is_player, map->x, map->y);
+		map->p_x = x * PXL;
+		map->p_y = y * PXL;
 	}
 	else if (map->tab[y][x] == 'C')
 	{
@@ -77,7 +83,7 @@ void	return_error(int c, t_solong *map)
 	if (c == 2)
 	{
 		free(map->tab);
-		ft_putendl_fd("Need exit and collectible !", STDERR_FILENO);
+		ft_putendl_fd("Need 1 exit and collectible !", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 }
